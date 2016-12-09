@@ -6,6 +6,10 @@ machine:
     DISPLAY: :99.0
     CHROME_BIN: chromium-browser
 
+dependencies:
+  pre:
+    - apt-get install chromium-browser
+
 #deployment:
 #  staging:
 #    branch: master
