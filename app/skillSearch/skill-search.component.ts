@@ -21,7 +21,7 @@ import 'rxjs/add/operator/distinctUntilChanged';
 }`]
 
 })
-export class FooComponent {
+export class SkillSearchComponent {
 
   people: any;
   skills: string[];
