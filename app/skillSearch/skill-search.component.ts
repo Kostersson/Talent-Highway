@@ -3,6 +3,11 @@ import * as _ from 'lodash';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
+import {Person} from "../entities/Person";
+import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import {Skill} from "../entities/Skill";
+
+
 
 @Component({
   selector: 'my-app',
@@ -11,36 +16,18 @@ import 'rxjs/add/operator/distinctUntilChanged';
 })
 export class SkillSearchComponent {
 
-  people: any;
-  skills: string[];
+  people: Person[];
+  skills: FirebaseListObservable<any[]>;
   selected: string[];
   query: string;
   filtered: string[];
 
-  constructor() {
-    this.people = [
-      {
-        name: 'jaska',
-        skills: ['scala', 'java', 'php']
-      },
-      {
-        name: 'pera',
-        skills: ['python', 'c']
-      },
-      {
-        name: 'jukka',
-        skills: ['scala', 'c++', 'c']
-      },
-      {
-        name: 'antti',
-        skills: ['cobol', 'c++', 'c']
-      },
-      {
-        name: 'jaakko',
-        skills: ['c', 'c++', 'c#']
-      }
-    ];
-    this.skills = ['scala', 'java', 'php', 'python', 'c', 'c++'];
+  constructor(af: AngularFire) {
+    this.people = [];
+    //const itemObservable = af.database.object('/skill');
+    //itemObservable.set(new Skill("java"));
+
+    //this.skills = af.database.list('/skills');
     this.selected = [];
     this.filtered = [];
   }
@@ -56,8 +43,6 @@ export class SkillSearchComponent {
   }
 
   search = () => {
-    this.filtered = _.filter(this.skills, (o: string) => {
-      return o.startsWith(this.query);
-    });
+    return;
   }
 }
