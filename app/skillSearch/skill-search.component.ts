@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import * as _ from 'lodash';
-import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
@@ -8,18 +7,7 @@ import 'rxjs/add/operator/distinctUntilChanged';
 @Component({
   selector: 'my-app',
   templateUrl: 'app/skillSearch/skill-search.component.html',
-  styles: [`.selected{
-	border:solid #4CAF50 1px;
-	float:left; 
-	margin:2px;
-	padding:2px 15px;
-}
- 
-.selected a{
-	cursor:pointer;
-	font-weight:bold;
-}`]
-
+  styleUrls: ['app/skillSearch/skill-search.component.css']
 })
 export class SkillSearchComponent {
 
@@ -32,27 +20,27 @@ export class SkillSearchComponent {
   constructor() {
     this.people = [
       {
-        name: "jaska",
-        skills: ["scala", "java", "php"]
+        name: 'jaska',
+        skills: ['scala', 'java', 'php']
       },
       {
-        name: "pera",
-        skills: ["python", "c"]
+        name: 'pera',
+        skills: ['python', 'c']
       },
       {
-        name: "jukka",
-        skills: ["scala", "c++", "c"]
+        name: 'jukka',
+        skills: ['scala', 'c++', 'c']
       },
       {
-        name: "antti",
-        skills: ["cobol", "c++", "c"]
+        name: 'antti',
+        skills: ['cobol', 'c++', 'c']
       },
       {
-        name: "jaakko",
-        skills: ["c", "c++", "c#"]
+        name: 'jaakko',
+        skills: ['c', 'c++', 'c#']
       }
     ];
-    this.skills = ["scala", "java", "php", "python", "c", "c++"];
+    this.skills = ['scala', 'java', 'php', 'python', 'c', 'c++'];
     this.selected = [];
     this.filtered = [];
   }
@@ -67,9 +55,9 @@ export class SkillSearchComponent {
     this.selected.splice(this.selected.indexOf(item), 1);
   }
 
-  search = () =>{
+  search = () => {
     this.filtered = _.filter(this.skills, (o: string) => {
-      return o.startsWith(this.query)
+      return o.startsWith(this.query);
     });
   }
 }
