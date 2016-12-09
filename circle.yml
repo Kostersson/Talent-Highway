@@ -1,0 +1,15 @@
+machine:
+  node:
+    version: 6.1.0
+  environment:
+    DBUS_SESSION_BUS_ADDRESS: /dev/null
+    DISPLAY: :99.0
+    CHROME_BIN: chromium-browser
+
+#deployment:
+#  staging:
+#    branch: master
+#    commands:
+#      - echo "TELEGRAM_BOT_TOKEN=$TELEGRAM_BOT_TOKEN" >> .env
+#      - cat .env
+#      - serverless deploy
