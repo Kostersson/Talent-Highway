@@ -10,10 +10,8 @@ test:
   override:
     - echo "Ain't no-one 've time for tests"
 
-#deployment:
-#  staging:
-#    branch: master
-#    commands:
-#      - echo "TELEGRAM_BOT_TOKEN=$TELEGRAM_BOT_TOKEN" >> .env
-#      - cat .env
-#      - serverless deploy
+deployment:
+  staging:
+    branch: master
+    commands:
+      - aws s3 sync . s3://talent-highway
