@@ -1,3 +1,12 @@
 <p>
   person-card works!
 </p>
+
+<div>
+  <h1>{{ (person | async)?.name }}</h1>
+  Skill:
+  <ul *ngFor="let skill of (person | async)?.skills | keyValuePipe">
+    <li>{{ skill }}</li>
+
+  </ul>
+</div>

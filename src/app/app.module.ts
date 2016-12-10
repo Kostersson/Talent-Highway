@@ -6,6 +6,7 @@ import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 import { SearchComponent } from './search/search.component';
 import { FirebasetestComponent } from './firebasetest/firebasetest.component';
 import { PersonCardComponent } from './person-card/person-card.component';
+import { KeyValuePipePipe } from './key-value-pipe.pipe';
 
 // Must export the config
 const firebaseConfig = {
@@ -24,6 +25,7 @@ const myFirebaseAuthConfig = {
 const appRoutes: Routes = [
   { path: 'search', component: SearchComponent },
   { path: 'firebase', component: FirebasetestComponent },
+  { path: 'person', component: PersonCardComponent },
   { path: '', component: SearchComponent }
 ];
 
@@ -33,7 +35,7 @@ const appRoutes: Routes = [
     AngularFireModule.initializeApp(firebaseConfig, myFirebaseAuthConfig),
     RouterModule.forRoot(appRoutes)
   ],
-  declarations: [ AppComponent, SearchComponent, FirebasetestComponent, PersonCardComponent ],
+  declarations: [ AppComponent, SearchComponent, FirebasetestComponent, PersonCardComponent, KeyValuePipePipe ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule {}
