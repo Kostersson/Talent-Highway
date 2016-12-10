@@ -13,26 +13,33 @@ import * as _ from 'lodash'
 export class SearchComponent implements OnInit {
 
   skills: FirebaseListObservable<any[]>;
-  show: any[];
+  selected: any[];
   query: string;
+  result: Observable<any[]>;
 
   constructor(af: AngularFire) {
     af.auth.login();
     this.skills = af.database.list('/skills');
     this.query = "";
-    this.show = [];
+    this.selected = [];
   }
 
   search = () => {
-    let retu = this.skills.map((skills: any[]) => {
-      console.log(skills);
-      this.show = skills.filter((skill: any) => {
-        return skill.$value.startsWith(this.query) && this.query != '';
+    this.result = this.skills.map((skills: any[]) => {
+      return skills.filter((skill: any) => {
+        return skill.$value.toLowerCase().startsWith(this.query.toLowerCase()) && this.query != '';
       });
-      return skills;
     });
-    return retu;
   };
+
+  select(item: any) {
+    this.selected.push(item);
+    this.query = '';
+  }
+
+  remove(item: any) {
+    this.selected.splice(this.selected.indexOf(item), 1);
+  }
 
   log(x:any) {
     console.log(x);
