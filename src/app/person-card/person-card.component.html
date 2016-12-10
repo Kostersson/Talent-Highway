@@ -6,7 +6,10 @@
   <h1>{{ (person | async)?.name }}</h1>
   Skill:
   <ul *ngFor="let skill of (person | async)?.skills | keyValuePipe">
-    <li>{{ skill }}</li>
-
+    <li>{{ skill.$key }}: {{ skill.$val }} stars</li>
+  </ul>
+  Preference:
+  <ul *ngFor="let pref of (person | async)?.preferences | keyValuePipe">
+    <li>{{ pref.$key }}: {{ pref.$val }} hearts</li>
   </ul>
 </div>
