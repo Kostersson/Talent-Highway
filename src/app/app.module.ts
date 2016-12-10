@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 import { SearchComponent } from './search/search.component';
 import { FirebasetestComponent } from './firebasetest/firebasetest.component';
+import { FormsModule }   from '@angular/forms';
 
 // Must export the config
 const firebaseConfig = {
@@ -30,7 +31,8 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(firebaseConfig, myFirebaseAuthConfig),
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    FormsModule
   ],
   declarations: [ AppComponent, SearchComponent, FirebasetestComponent ],
   bootstrap: [ AppComponent ]
