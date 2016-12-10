@@ -1,7 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
+import { RouterModule, Routes } from '@angular/router';
 import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
+import { SearchComponent } from './search/search.component';
+import { FirebasetestComponent } from './firebasetest/firebasetest.component';
 
 // Must export the config
 const firebaseConfig = {
@@ -17,12 +20,19 @@ const myFirebaseAuthConfig = {
   method: AuthMethods.Anonymous
 };
 
+const appRoutes: Routes = [
+  { path: 'search', component: SearchComponent },
+  { path: 'firebase', component: FirebasetestComponent },
+  { path: '', component: SearchComponent }
+];
+
 @NgModule({
   imports: [
     BrowserModule,
-    AngularFireModule.initializeApp(firebaseConfig, myFirebaseAuthConfig)
+    AngularFireModule.initializeApp(firebaseConfig, myFirebaseAuthConfig),
+    RouterModule.forRoot(appRoutes)
   ],
-  declarations: [ AppComponent ],
+  declarations: [ AppComponent, SearchComponent, FirebasetestComponent ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule {}

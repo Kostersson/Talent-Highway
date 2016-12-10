@@ -1,5 +1,6 @@
-<ul>
-  <li class="text" *ngFor="let item of items | async">
-    {{item.$value}}
-  </li>
-</ul>
+<h1>Angular Router</h1>
+<nav>
+  <a routerLink="/search" routerLinkActive="active">Search</a>
+  <a routerLink="/firebase" routerLinkActive="active">Firebase Test</a>
+</nav>
+<router-outlet></router-outlet>
