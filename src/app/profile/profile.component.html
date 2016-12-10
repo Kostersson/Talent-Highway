@@ -1,0 +1,19 @@
+<div>
+  <img class="picture" src="https://solinor.fi/wp-content/uploads/2016/07/jonne-airaksinen-solinor-300x300.jpg" alt="Marko smiling" height="150" width="150">
+  <h1>{{ (personProfile | async)?.name }}</h1>
+  <p class="profileTitle">{{ (personProfile | async)?.title }}</p>
+
+  <p>Email <br>{{ (personProfile | async)?.email }}</p>
+
+  <p>Phone Number <br>{{ (personProfile | async)?.phone }}</p>
+
+  <p>Description <br>{{ (personProfile | async)?.description }}</p>
+  Skilled
+  <ul *ngFor="let skill of (personProfile | async)?.skills | keyValuePipe">
+    <li>{{ skill.$key }}: {{ skill.$val }} stars</li>
+  </ul>
+  Interested
+  <ul *ngFor="let pref of (personProfile | async)?.preferences | keyValuePipe">
+    <li>{{ pref.$key }}: {{ pref.$val }} hearts</li>
+  </ul>
+</div>
