@@ -6,10 +6,6 @@ machine:
     DISPLAY: :99.0
     CHROME_BIN: chromium-browser
 
-dependencies:
-  post:
-    - npm run tsc
-
 test:
   override:
     - echo "Ain't no-one 've time for tests"
@@ -18,4 +14,5 @@ deployment:
   staging:
     branch: master
     commands:
-      - aws s3 sync . s3://talent-highway
+      - ./node_modules/.bin/ng build
+      - aws s3 sync ./dist s3://talent-highway
